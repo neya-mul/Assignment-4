@@ -34,7 +34,7 @@
         <div class="flex justify-between">
             <div class="w-[350px] text-left  px-4 py-3 bg-white border-gray-200">
                 <p>Total</p>
-                <h1 class="font-bold">0</h1>
+                <h1 class="font-bold" id="total-jobs">0</h1>
             </div>
             <div class="w-[350px] text-left px-4 py-3 bg-white border-gray-200">
                 <p>Interview</p>
@@ -46,17 +46,65 @@
             </div>
         </div>
     </header>
-    <hr class="my-9 text-gray-200"> 
+    <hr class="my-9 text-gray-200">
     <main>
         <!-- section 1 -->
-        <section class="section flex justify-between">
+        <section class="section1 flex justify-between">
             <div>
                 <h1 class="mb-5">Available Jobs</h1>
                 <button class="bg-blue-500 mr-4 text-white rounded-sm px-6 py-2">All</button>
                 <button class="text-black mr-4 bg-white rounded-sm px-6 py-2">Interview</button>
                 <button class="text-black mr-4 bg-white rounded-sm px-6 py-2">Rejected</button>
             </div>
-            <p><span>0</span>  Jobs</p>
+            <p><span id="available-jobs">0</span> Jobs</p>
+        </section>
+
+        <section class="section2 jobs " id="all-jobs">
+
+            <div class="job1 p-4 border border-gray-300 mt-7 bg-white rounded ">
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <h1 class="text-2xl ">Mobile First Corp</h1>
+                        <button><button><i class="fa-solid fa-trash-can"></i></button></button>
+                    </div>
+                    <p>React Native Developer</p>
+                    <div class="flex gap-7 my-4">
+                        <p>Remote</p>
+                        <li>Full Time</li>
+                        <li>$130,000 - $175,000</li>
+                    </div>
+                    <span class="badge bg-blue-200 p-2 text-gray-500 rounded">Not Applied</span>
+                    <p class="mt-5">Build cross-platform mobile applications using React Native. Work on products used
+                        by millions of
+                        users worldwide.</p>
+                    <button class="border border-green-300 text-green-500 p-2 rounded font-bold">Interview</button>
+                    <button class="border border-red-300 text-red-500 rounded p-2 font-bold">Rejected</button>
+                </div>
+
+            </div>
+            
+            <div class="job1 p-4 border border-gray-300 mt-7 bg-white rounded ">
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <h1 class="text-2xl ">Mobile First Corp</h1>
+                        <button><button><i class="fa-solid fa-trash-can"></i></button></button>
+                    </div>
+                    <p>React Native Developer</p>
+                    <div class="flex gap-7 my-4">
+                        <p>Remote</p>
+                        <li>Full Time</li>
+                        <li>$130,000 - $175,000</li>
+                    </div>
+                    <span class="badge bg-blue-200 p-2 text-gray-500 rounded">Not Applied</span>
+                    <p class="mt-5">Build cross-platform mobile applications using React Native. Work on products used
+                        by millions of
+                        users worldwide.</p>
+                    <button class="border border-green-300 text-green-500 p-2 rounded font-bold">Interview</button>
+                    <button class="border border-red-300 text-red-500 rounded p-2 font-bold">Rejected</button>
+                </div>
+
+            </div>
+
         </section>
     </main>
 
