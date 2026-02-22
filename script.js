@@ -50,3 +50,12 @@ rejected.addEventListener('click', function () {
 
 
 
+
+
+let allButtons = document.getElementsByClassName('interview');
+for (let button of allButtons) {
+    button.addEventListener('click', function () {
+     allInterViewValue 
+  
+    })
+}
