@@ -50,11 +50,11 @@ function buttonColorChange(id) {
     selectedSection.classList.add('bg-blue-500', 'text-white')
     selectedSection.classList.remove('bg-white')
 
-    if(id == 'interview'){
+    if (id == 'interview') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
     }
-    else if(id == 'all'){
+    else if (id == 'all') {
         allJobs.classList.remove('hidden')
         hiddenSection.classList.add('hidden')
     }
@@ -103,6 +103,7 @@ mainContainer.addEventListener('click', function (event) {
             console.log(interviewList);
 
         }
+        allJobsCount()
         pushJobs()
     }
 
@@ -119,7 +120,8 @@ function pushJobs() {
         let div = document.createElement('div');
         div.classList.add('job', 'p-4', 'border', 'border-gray-300', 'mt-7', 'bg-white', 'rounded', 'space-y-2')
         div.innerHTML = `
-     <div class="flex justify-between">
+
+                 <div class="flex justify-between">
                     <h1 class="job-title text-2xl ">${interviews.jobTitle}</h1>
                     <button><i class="fa-solid fa-trash-can delete-btn"></i></button>
                 </div>
@@ -134,6 +136,7 @@ function pushJobs() {
                 <button
                     class="border border-green-300 text-green-500 p-2 rounded font-bold interview">${interviews.interview}</button>
                 <button class="border border-red-300 text-red-500 rounded p-2 font-bold rejected">${interviews.rejected}</button>
+                
 
     
     `
