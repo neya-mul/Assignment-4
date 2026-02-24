@@ -66,6 +66,10 @@ function buttonColorChange(id) {
         availableJobs.innerText = interviewList.length
         pushJobs()
     }
+    
+    // else if(id == 'hiddenSection'){
+    //     hiddenSection.classList.remove('hidden')
+    // }
     else if (id == 'all') {
         allJobs.classList.remove('hidden')
         hiddenSection.classList.add('hidden')
@@ -76,6 +80,9 @@ function buttonColorChange(id) {
           availableJobs.innerText = rejectionList.length
           
         rejectedJobs()
+    }
+    else {
+        hiddenSection.style.display = 'block'
     }
 
 }
@@ -189,6 +196,16 @@ mainContainer.addEventListener('click', function (event) {
 
 function pushJobs() {
     hiddenSection.innerHTML = '';
+
+    if(interviewList.length === 0 ){
+        hiddenSection.innerHTML = `
+         <div id="no-jobs " class="p-15 text-center bg-white mt-8">
+                <img src="./jobs.png" alt="" class="mx-auto">
+                <h1 class="font-bold">No jobs available</h1>
+                <p>Check back soon for new job opportunities</p>
+            </div>
+        `
+    }
     for (let interviews of interviewList) {
         // console.log(interviews);
 
@@ -225,6 +242,17 @@ function pushJobs() {
 
 function rejectedJobs() {
     hiddenSection.innerHTML = '';
+
+      if(
+        rejectionList.length === 0 ){
+        hiddenSection.innerHTML = `
+         <div id="no-jobs " class="p-15 text-center bg-white mt-8">
+                <img src="./jobs.png" alt="" class="mx-auto">
+                <h1 class="font-bold">No jobs available</h1>
+                <p>Check back soon for new job opportunities</p>
+            </div>
+        `
+    }
     for (let rejections of rejectionList) {
         // console.log(interviews);
 
