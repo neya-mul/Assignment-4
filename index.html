@@ -52,12 +52,14 @@
         <section class="section1 flex justify-between">
             <div>
                 <h1 class="mb-5">Available Jobs</h1>
-                <button onclick="buttonColorChange('all')" class="bg-blue-500 mr-4 text-white rounded-sm px-6 py-2"
+              <div class="grid grid-cols-1 gap-5 sm:flex">
+                  <button onclick="buttonColorChange('all')" class="bg-blue-500 mr-4 text-white rounded-sm px-6 py-2"
                     id="all">All</button>
                 <button onclick="buttonColorChange('interview')" class="text-black mr-4 bg-white rounded-sm px-6 py-2"
                     id="interview">Interview</button>
                 <button onclick="buttonColorChange('rejected')" class="text-black mr-4 bg-white rounded-sm px-6 py-2"
                     id="rejected">Rejected</button>
+              </div>
             </div>
             <p><span id="available-jobs">0</span> Jobs</p>
         </section>
