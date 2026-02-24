@@ -19,7 +19,8 @@ let interviewSection = document.getElementById('interview')
 let rejectionSection = document.getElementById('rejected')
 
 
-
+// others
+let currentStatus = 'all'
 let hiddenSection = document.getElementById('hidden-section')
 let mainContainer = document.querySelector('main')
 
@@ -29,8 +30,6 @@ function allJobsCount() {
     totalJobs.innerText = allJobsLength;
     totalInterviwes.innerText = interviewList.length;
     totalRejections.innerText = rejectionList.length;
-
-
 }
 allJobsCount()
 
@@ -46,13 +45,19 @@ function buttonColorChange(id) {
     rejectionSection.classList.add('bg-white', 'text-black')
 
     let selectedSection = document.getElementById(id);
+    // ===========
+    currentStatus = id
+
 
     selectedSection.classList.add('bg-blue-500', 'text-white')
     selectedSection.classList.remove('bg-white')
 
+
+    // toggle sections
     if (id == 'interview') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
+        pushJobs()
     }
     else if (id == 'all') {
         allJobs.classList.remove('hidden')
@@ -61,6 +66,7 @@ function buttonColorChange(id) {
     else if (id == 'rejected') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
+        rejectedJobs()
     }
 
 }
@@ -108,8 +114,13 @@ mainContainer.addEventListener('click', function (event) {
             // console.log(interviewList);
 
         }
+
+        rejectionList = rejectionList.filter(element => element.jobTitle != wholeCard.jobTitle)
+        if(currentStatus == 'rejected'){
+            rejectedJobs()
+        }
         allJobsCount()
-        pushJobs()
+        // pushJobs()
     }
     else if (event.target.classList.contains('rejected')) {
         let parentNode = event.target.parentNode
@@ -142,7 +153,7 @@ mainContainer.addEventListener('click', function (event) {
             rejected
         }
 
-        let card = rejectionList.find(element => element.jobTitle === wholeCard.jobTitle)
+        let card = rejectionList.find(element => element.jobTitle == wholeCard.jobTitle)
 
         if (!card) {
             rejectionList.push(wholeCard);
@@ -150,8 +161,16 @@ mainContainer.addEventListener('click', function (event) {
             // console.log(interviewList);
 
         }
+        interviewList = interviewList.filter(element => element.jobTitle != wholeCard.jobTitle)
+
+        // first(ignore this comment )
+
+        if (currentStatus == 'interview') {
+            pushJobs()
+        }
+
         allJobsCount()
-        rejectedJobs()
+        // rejectedJobs()
     }
 
 })
