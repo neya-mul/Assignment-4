@@ -23,6 +23,11 @@ let rejectionSection = document.getElementById('rejected')
 let currentStatus = 'all'
 let hiddenSection = document.getElementById('hidden-section')
 let mainContainer = document.querySelector('main')
+let availableJobs = document.getElementById('available-jobs')
+let deleteButtons = document.querySelectorAll('.delete-btn')
+// console.log(deleteButtons);
+
+// console.log(availableJobs);
 
 
 
@@ -30,6 +35,7 @@ function allJobsCount() {
     totalJobs.innerText = allJobsLength;
     totalInterviwes.innerText = interviewList.length;
     totalRejections.innerText = rejectionList.length;
+    availableJobs.innerText = allJobsLength
 }
 allJobsCount()
 
@@ -57,6 +63,7 @@ function buttonColorChange(id) {
     if (id == 'interview') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
+        availableJobs.innerText = interviewList.length
         pushJobs()
     }
     else if (id == 'all') {
@@ -66,6 +73,8 @@ function buttonColorChange(id) {
     else if (id == 'rejected') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
+          availableJobs.innerText = rejectionList.length
+          
         rejectedJobs()
     }
 
@@ -163,7 +172,7 @@ mainContainer.addEventListener('click', function (event) {
         }
         interviewList = interviewList.filter(element => element.jobTitle != wholeCard.jobTitle)
 
-        // first(ignore this comment )
+
 
         if (currentStatus == 'interview') {
             pushJobs()
@@ -172,6 +181,7 @@ mainContainer.addEventListener('click', function (event) {
         allJobsCount()
         // rejectedJobs()
     }
+  
 
 })
 
@@ -243,4 +253,17 @@ function rejectedJobs() {
     `
         hiddenSection.appendChild(div)
     }
+}
+
+for (let dltBtn of deleteButtons){
+    dltBtn.addEventListener('click',function(event){
+      let dltParent =  event.target.closest('.job');
+     dltParent.remove()
+    //   let totalJobsMinus = document.getElementById('total-jobs');
+    //   Number(totalJobsMinus)--
+    //   console.log(totalJobsMinus.innerText);
+      
+      
+        
+    })
 }
