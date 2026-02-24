@@ -66,7 +66,7 @@ function buttonColorChange(id) {
         availableJobs.innerText = interviewList.length
         pushJobs()
     }
-    
+
     // else if(id == 'hiddenSection'){
     //     hiddenSection.classList.remove('hidden')
     // }
@@ -77,8 +77,8 @@ function buttonColorChange(id) {
     else if (id == 'rejected') {
         allJobs.classList.add('hidden')
         hiddenSection.classList.remove('hidden', 'p-15', 'text-center')
-          availableJobs.innerText = rejectionList.length
-          
+        availableJobs.innerText = rejectionList.length
+
         rejectedJobs()
     }
     else {
@@ -132,7 +132,7 @@ mainContainer.addEventListener('click', function (event) {
         }
 
         rejectionList = rejectionList.filter(element => element.jobTitle != wholeCard.jobTitle)
-        if(currentStatus == 'rejected'){
+        if (currentStatus == 'rejected') {
             rejectedJobs()
         }
         allJobsCount()
@@ -188,7 +188,7 @@ mainContainer.addEventListener('click', function (event) {
         allJobsCount()
         // rejectedJobs()
     }
-  
+
 
 })
 
@@ -197,7 +197,7 @@ mainContainer.addEventListener('click', function (event) {
 function pushJobs() {
     hiddenSection.innerHTML = '';
 
-    if(interviewList.length === 0 ){
+    if (interviewList.length === 0) {
         hiddenSection.innerHTML = `
          <div id="no-jobs " class="p-15 text-center bg-white mt-8">
                 <img src="./jobs.png" alt="" class="mx-auto">
@@ -243,8 +243,8 @@ function pushJobs() {
 function rejectedJobs() {
     hiddenSection.innerHTML = '';
 
-      if(
-        rejectionList.length === 0 ){
+    if (
+        rejectionList.length === 0) {
         hiddenSection.innerHTML = `
          <div id="no-jobs " class="p-15 text-center bg-white mt-8">
                 <img src="./jobs.png" alt="" class="mx-auto">
@@ -283,15 +283,24 @@ function rejectedJobs() {
     }
 }
 
-for (let dltBtn of deleteButtons){
-    dltBtn.addEventListener('click',function(event){
-      let dltParent =  event.target.closest('.job');
-     dltParent.remove()
-    //   let totalJobsMinus = document.getElementById('total-jobs');
-    //   Number(totalJobsMinus)--
-    //   console.log(totalJobsMinus.innerText);
-      
-      
-        
+for (let dltBtn of deleteButtons) {
+    dltBtn.addEventListener('click', function (event) {
+        let dltParent = event.target.closest('.job');
+        dltParent.remove()
     })
 }
+
+function availableJobsCount() {
+    if (currentStatus == 'all') {
+        availableJobs.innerText = allJobs.children.length
+    }
+    else if (currentStatus == 'interview') {
+        availableJobs.innerText = interviewList.length;
+
+    }
+    else if (currentStatus == 'rejected') {
+        availableJobs.innerText = rejectionList.length;
+    }
+}
+
+availableJobsCount()
